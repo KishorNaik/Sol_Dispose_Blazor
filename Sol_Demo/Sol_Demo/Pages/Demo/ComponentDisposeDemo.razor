@@ -1,0 +1,21 @@
+﻿@page "/disposedemo"
+
+<EditForm Model="this.Data" Context="formContext">
+    <DataAnnotationsValidator></DataAnnotationsValidator>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                    <label for="txtData">Data:</label>
+                    <InputText id="txtData" class="form-control" @bind-Value="this.Data.Value"></InputText>
+                    <ValidationMessage For="@(()=> this.Data.Value)"></ValidationMessage>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <button type="submit" class="btn btn-danger" @onclick="@(()=> this.OnSubmitCommand(formContext))">Submit</button>
+            </div>
+        </div>
+    </div>
+</EditForm>
